@@ -5,4 +5,5 @@ from models import db
 class ClientModel(UserModel):
     __tablename__ = 'client'
 
-    health_plan = db.Column(db.String, nullable=False)
+    address = db.relationship('ClientAddressModel', backref='client', uselist=False)
+    health_plan_id = db.Column(db.String, db.ForeignKey('health_plan.name'))

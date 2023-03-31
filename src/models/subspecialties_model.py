@@ -1,8 +1,16 @@
 from models import db
 
 
+subspecilaty_professional = db.Table(
+    'subspecilaty_professional',
+    db.Column('subspecialty_id', db.String, db.ForeignKey('subspecialty.name')),
+    db.Column('professional_id', db.Integer, db.ForeignKey('professional.id'))
+)
+
+
 class SubspecialtyModel(db.Model):
     __tablename__ = 'subspecialty'
 
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String, nullable=False)
+    name = db.Column(db.String, primary_key=True)
+    specialty_id = db.Column(db.Integer, db.ForeignKey('specialty.id'), nullable=False)
+    professionals = db.relationship('ProfessionalModel', secondary=subspecilaty_professional, back_populates='subspecialty')

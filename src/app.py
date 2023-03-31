@@ -19,6 +19,11 @@ api.add_resource(ClientService, '/clients', '/clients/<int:id>')
 from models.address_model import AddressModel
 from models.client_model import ClientModel
 from models.professional_model import ProfessionalModel
+from models.specialty_model import SpecialtyModel
+from models.subspecialties_model import subspecilaty_professional, SubspecialtyModel
+from models.health_plan_model import health_plan_professional, HealthPlanModel
+from models.professional_address_model import ProfessionalAddressModel
+from models.client_address_model import ClientAddressModel
 
 Migrate(app, db)
 
