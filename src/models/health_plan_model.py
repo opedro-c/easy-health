@@ -13,4 +13,4 @@ class HealthPlanModel(db.Model):
 
     name = db.Column(db.String, primary_key=True)
     clients = db.relationship('ClientModel', backref='health_plan')
-    professionals = db.relationship('ProfessionalModel', secondary=health_plan_professional, back_populates='health_plan')
+    professionals = db.relationship('ProfessionalModel', secondary=health_plan_professional, back_populates='accepted_health_plans')

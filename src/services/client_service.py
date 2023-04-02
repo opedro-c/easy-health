@@ -1,18 +1,25 @@
-from flask_restful import Resource, request
+from pprint import pprint
+from schemas.client_serializer import ClientSerializer
+from models.client_model import ClientModel
 from models import db
 
 
-class ClientService(Resource):
+client_serializer = ClientSerializer()
+clients_serializer = ClientSerializer(many=True)
 
-    
-    def get(self, id=None):
-        return {'hello': f'world com {id}'} if id else {'hello': 'world sem id'}
+class ClientService:
 
-    def post(self):
-        pass
+    def create_client(self, obj):
+        pprint(obj)
+        client = client_serializer.load(obj)
+        db.session.add(client)
+        db.session.commit()
+        return client_serializer.dump(client)
 
-    def put(self):
-        pass
+    def get_client(self, id):
+        query = ClientModel.query.get(id)
+        return client_serializer.dump(query)
 
-    def delete(self, id):
-        pass
+    def get_all_clients(self):
+        query = ClientModel.query.all()
+        return clients_serializer.dump(query)

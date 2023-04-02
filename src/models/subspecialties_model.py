@@ -13,4 +13,4 @@ class SubspecialtyModel(db.Model):
 
     name = db.Column(db.String, primary_key=True)
     specialty_id = db.Column(db.Integer, db.ForeignKey('specialty.id'), nullable=False)
-    professionals = db.relationship('ProfessionalModel', secondary=subspecilaty_professional, back_populates='subspecialty')
+    professionals = db.relationship('ProfessionalModel', secondary=subspecilaty_professional, back_populates='subspecialties')
