@@ -11,23 +11,25 @@ class TestClient(TestCase):
             'name': 'User Name',
             'email': 'user_email@email.com',
             'password': 'userpassword',
-            'phone_number': '889999999',
+            'phone_number': 889999999,
             'address': {
                 'state': 'RN',
                 'city': 'Natal',
                 'street': 'Avenida Salgado Filho',
                 'complement': 'Ap 123'
             },
-            'health_plan_id': {
-                'name': 'unimed'
-            }
+            'health_plan_id': 'unimed'
         }
         response = post(CLIENTS_URL, json=body)
         self.assertEqual(response.status_code, 201, response.json())
         self.assertIn('id', response.json().keys())
         self.assertTrue(response.json().get('id'))
+        body.pop('password')
+        data = response.json()
+        data['address'].pop('client')
+        data['address'].pop('id')
         for k in body.keys():
-            self.assertEqual(response.json().get(k), body.get(k))
+            self.assertEqual(data.get(k), body.get(k))
 
 if __name__ == '__main__':
     main()

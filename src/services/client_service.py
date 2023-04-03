@@ -10,7 +10,6 @@ clients_serializer = ClientSerializer(many=True)
 class ClientService:
 
     def create_client(self, obj):
-        pprint(obj)
         client = client_serializer.load(obj)
         db.session.add(client)
         db.session.commit()
