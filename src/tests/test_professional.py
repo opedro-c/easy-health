@@ -10,9 +10,9 @@ class TestProfessional(unittest.TestCase):
 
     def test_create_professional(self):
         body = {
-            'name': 'User Professional',
-            'email': 'professional@email.com',
-            'password': 'strongcomplicated123',
+            'name': 'User Professional 2',
+            'email': 'professional2@email.com',
+            'password': 'strongcomplicated1234',
             'phone_number': 849555555,
             'addresses': [
                 {
@@ -30,9 +30,9 @@ class TestProfessional(unittest.TestCase):
             ],
             'provides_home_service': True,
             'specialty': 'medicine',
-            'subspecialties': ['dermo', 'oftalmo'],
-            'accepted_health_plans': ['unimed', 'hapvida'],
-            'council_registration': 791236,
+            'subspecialties': ['dermo', 'nutri'],
+            'accepted_health_plans': ['bradesco', 'hapvida'],
+            'council_registration': 1802,
             'twitter': 'aaaaa',
             'insta': '@aaaa',
             'linkedin': 'aaaaa',
