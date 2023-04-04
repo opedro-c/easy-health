@@ -1,5 +1,5 @@
 from global_variables import BASE_URL
-from requests import post
+from requests import get, post
 from unittest import TestCase, main
 
 CLIENTS_URL = f'{BASE_URL}/clients'
@@ -18,7 +18,7 @@ class TestClient(TestCase):
                 'street': 'Avenida Salgado Filho',
                 'complement': 'Ap 123'
             },
-            'health_plan_id': 'unimed'
+            'health_plan': 'unimed'
         }
         response = post(CLIENTS_URL, json=body)
         self.assertEqual(response.status_code, 201, response.json())
@@ -30,6 +30,9 @@ class TestClient(TestCase):
         data['address'].pop('id')
         for k in body.keys():
             self.assertEqual(data.get(k), body.get(k))
+
+    def test_get_user(self):
+        print(get(f'{CLIENTS_URL}').json())        
 
 if __name__ == '__main__':
     main()

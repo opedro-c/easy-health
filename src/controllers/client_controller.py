@@ -10,8 +10,7 @@ class ClientController(Resource):
     def get(self, id=None):
         if id:
             return client_service.get_client(id)
-        else:
-            return client_service.get_all_clients()
+        return client_service.get_all_clients()
 
     def post(self):
         client = client_service.create_client(request.json)

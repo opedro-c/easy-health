@@ -1,4 +1,3 @@
-from pprint import pprint
 from schemas.client_serializer import ClientSerializer
 from models.client_model import ClientModel
 from models import db

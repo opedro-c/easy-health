@@ -6,4 +6,4 @@ class ClientModel(UserModel):
     __tablename__ = 'client'
 
     address = db.relationship('ClientAddressModel', backref='client', uselist=False)
-    health_plan_id = db.Column(db.String, db.ForeignKey('health_plan.name'))
+    health_plan = db.Column(db.String, nullable=False)
