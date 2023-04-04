@@ -1,3 +1,4 @@
+import pprint
 from requests import post
 import global_variables
 import unittest
@@ -29,22 +30,8 @@ class TestProfessional(unittest.TestCase):
             ],
             'provides_home_service': True,
             'specialty': 'medicine',
-            'subspecialties': [
-                {
-                    'name': 'dermo'
-                },
-                {
-                    'name': 'oftalmo'
-                }
-            ],
-            'accepted_health_plans': [
-                {
-                    'name': 'unimed'
-                },
-                {
-                    'name': 'hapvida'
-                }
-            ],
+            'subspecialties': ['dermo', 'oftalmo'],
+            'accepted_health_plans': ['unimed', 'hapvida'],
             'council_registration': 791236,
             'twitter': 'aaaaa',
             'insta': '@aaaa',
@@ -53,6 +40,7 @@ class TestProfessional(unittest.TestCase):
         }
         response = post(PROF_URL, json=body)
         self.assertEqual(response.status_code, 201, response.content)
+        pprint(response.json(), ident=4)
 
 
 if __name__ == '__main__':

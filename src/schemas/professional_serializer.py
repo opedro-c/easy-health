@@ -12,6 +12,6 @@ class ProfessionalSerializer(ma.SQLAlchemyAutoSchema):
         include_fk = True
         load_instance = True
     password = ma.Str(load_only=True)
-    subspecialties = ma.Nested(SubspecialtySerializer, many=True)
+    subspecialties = ma.Pluck(SubspecialtySerializer, 'name',many=True)
     addresses = ma.Nested(ProfessionalAddressSerializer, many=True)
-    accepted_health_plans = ma.Nested(HealthPlanSerializer, many=True)
+    accepted_health_plans = ma.Pluck(HealthPlanSerializer, 'name', many=True)
