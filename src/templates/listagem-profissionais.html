@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div>
+        <h1>Busque o profissional</h1>
+    </div>
+    <form>
+        <div>
+            <label for="name">Nome</label>
+            <input type="text" name="name" id="name" required>
+        </div>
+        <div>
+            <fieldset class="grupo">
+                <label>Filtros</label>
+                <div class="campo">
+                    <label for="specialty">Qual tipo de profissional você está procurando?</label>
+                    <br>
+                    <label>
+                        <input type="radio" name="specialty" value="medico" checked>Médico
+                    </label>
+                    <label>
+                    </label>
+                        <input type="radio" name="specialty" value="fisioterapeuta">Fisioterapeuta
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="nutricionista">Nutricionista
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="psicologo">Psicologo
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="veterinario">Veterinário
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="educador-fisco">Educador Físico
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="terapeuta-ocupacional">Terapeuta Ocupacional
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="dentista">Dentista
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="enfermeiro">Enfermeiro
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="farmaceutico">Farmacêutico
+                    </label>
+                    <label>
+                        <input type="radio" name="specialty" value="biomedico">Biomédico
+                    </label>
+                    
+                    
+                </div>
+            </fieldset>
+        </div>
+        <button type="submit" onclick="">Buscar</button>
+    </form>
+
+    <div name="results">
+        <template id="professional-template">
+            <div class="professional">
+                <p>Nome: <span></span></p>
+                <p>Especialidade: <span></span></p>
+            </div>
+        </template>
+    </div>
+</body>
+</html>
