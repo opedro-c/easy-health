@@ -1,3 +1,4 @@
+from marshmallow import validates, ValidationError
 from models.professional_model import ProfessionalModel
 from schemas.subspecialty_serializer import SubspecialtySerializer
 from schemas.professional_address_serializer import ProfessionalAddressSerializer
@@ -15,3 +16,14 @@ class ProfessionalSerializer(ma.SQLAlchemyAutoSchema):
     subspecialties = ma.Pluck(SubspecialtySerializer, 'name',many=True)
     addresses = ma.Nested(ProfessionalAddressSerializer, many=True)
     accepted_health_plans = ma.Pluck(HealthPlanSerializer, 'name', many=True)
+
+    @validates('specialty')
+    def is_valid_specialty(self, specialty):
+        valid_specialties = {
+            'medicina', 'nutricao', 'veterinaria',
+            'fisioterapia', 'psicologia', 'terapia_ocupacional',
+            'educacao_fisica', 'odontologia', 'enfermagem', 
+            'farmacia', 'biomedicina'
+        }
+        if specialty not in valid_specialties:
+            raise ValidationError('Not a valid specialty')

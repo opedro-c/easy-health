@@ -29,7 +29,7 @@ class TestProfessional(unittest.TestCase):
                 }
             ],
             'provides_home_service': True,
-            'specialty': 'medicine',
+            'specialty': 'medicina',
             'subspecialties': ['dermo', 'nutri'],
             'accepted_health_plans': ['bradesco', 'hapvida'],
             'council_registration': 1802,
@@ -40,7 +40,7 @@ class TestProfessional(unittest.TestCase):
         }
         response = post(PROF_URL, json=body)
         self.assertEqual(response.status_code, 201, response.content)
-        pprint(response.json(), ident=4)
+        pprint.pprint(response.json(), indent=4)
 
 
 if __name__ == '__main__':
