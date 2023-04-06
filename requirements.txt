@@ -5,3 +5,4 @@ flask-login
 flask-marshmallow
 flask-migrate
 marshmallow-sqlalchemy
+requests
