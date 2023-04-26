@@ -29,7 +29,7 @@ Migrate(app, db)
 from controllers.client_controller import ClientController
 api.add_resource(ClientController, '/clients', '/clients/<int:id>')
 from controllers.professional_controller import ProfessionalController
-api.add_resource(ProfessionalController, '/professional', '/professional/<int:id>')
+api.add_resource(ProfessionalController, '/professionals', '/professionals/<int:id>')
 
 
 if __name__ == '__main__':
