@@ -32,5 +32,13 @@ from controllers.professional_controller import ProfessionalController
 api.add_resource(ProfessionalController, '/professionals', '/professionals/<int:id>')
 
 
+# Error Mapping
+api.errors = {
+    'ValidationError': {
+        'status': 400,
+        'message': 'Data provided could not be validated!'
+    }
+}
+
 if __name__ == '__main__':
     app.run(debug=True)
