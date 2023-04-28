@@ -10,6 +10,8 @@ class AuthService:
          client = client_service.get_client_by_email(data.get('email'))
          professional = professional_service.get_professional_by_email(data.get('email'))
          user = client or professional
+         if not user:
+            return None
          password_ok = check_password_hash(user.password, data.get('password'))
          if password_ok:
             login_ok = login_user(user)
