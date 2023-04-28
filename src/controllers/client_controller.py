@@ -1,15 +1,12 @@
 from flask_restful import Resource, request
-from services.client_service import ClientService
-
-
-client_service = ClientService()
+from services.client_service import client_service
 
 
 class ClientController(Resource):
 
     def get(self, id=None):
         if id:
-            return client_service.get_client(id)
+            return client_service.get_client_by_id(id)
         return client_service.get_all_clients()
 
     def post(self):

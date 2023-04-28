@@ -1,9 +1,6 @@
 from flask import request
 from flask_restful import Resource
-from services.professional_service import ProfessionalService
-
-
-professional_service = ProfessionalService()
+from services.professional_service import professional_service
 
 
 class ProfessionalController(Resource):
@@ -11,7 +8,7 @@ class ProfessionalController(Resource):
 
     def get(self, id=None):
         if id:
-            return professional_service.get_professional(id)
+            return professional_service.get_professional_by_id(id)
         return professional_service.get_all_professionals()
 
     def post(self):

@@ -12,3 +12,7 @@ class ClientSerializer(ma.SQLAlchemyAutoSchema):
 
     password = ma.Str(load_only=True)
     address = ma.Nested(ClientAddressSerializer)
+
+
+client_serializer = ClientSerializer()
+clients_serializer = ClientSerializer(many=True)

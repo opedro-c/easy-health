@@ -27,3 +27,7 @@ class ProfessionalSerializer(ma.SQLAlchemyAutoSchema):
         }
         if specialty not in valid_specialties:
             raise ValidationError('Not a valid specialty')
+
+
+professional_serializer = ProfessionalSerializer()
+professionals_serializer = ProfessionalSerializer(many=True)
