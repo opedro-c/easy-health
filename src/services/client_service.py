@@ -10,19 +10,19 @@ class ClientService:
         client.password = generate_password_hash(client.password, method='sha256')
         db.session.add(client)
         db.session.commit()
-        return client_serializer.dump(client)
+        return client
 
     def get_client_by_id(self, id):
         query = ClientModel.query.get(id)
-        return client_serializer.dump(query)
+        return query
     
     def get_client_by_email(self, email):
         query = ClientModel.query.filter_by(email=email)
-        return client_serializer.dump(query.first())
+        return query.first()
 
     def get_all_clients(self):
         query = ClientModel.query.all()
-        return clients_serializer.dump(query)
+        return query
 
 
 client_service = ClientService()

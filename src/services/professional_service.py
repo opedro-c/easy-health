@@ -11,19 +11,19 @@ class ProfessionalService:
         professional.password = generate_password_hash(professional.password, method='sha256')
         db.session.add(professional)
         db.session.commit()
-        return professional_serializer.dump(professional)
+        return professional
 
     def get_professional_by_id(self, id):
         query = ProfessionalModel.query.get(id)
-        return professional_serializer.dump(query)
+        return query
     
     def get_professional_by_email(self, email):
         query = ProfessionalModel.query.filter_by(email=email)
-        return professional_serializer.dump(query.first())
+        return query.first()
 
     def get_all_professionals(self):
         query = ProfessionalModel.query.all()
-        return professionals_serializer.dump(query)
+        return query
 
 
 professional_service = ProfessionalService()
