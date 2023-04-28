@@ -1,3 +1,4 @@
+from secrets import token_hex
 from flask import Flask
 from flask_migrate import Migrate
 from flask_login import LoginManager
@@ -8,6 +9,7 @@ from schemas import ma
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///easy_health.db"
+app.config['SECRET_KEY'] = token_hex(16)
 db.init_app(app)
 ma.init_app(app)
 api = Api(app)
