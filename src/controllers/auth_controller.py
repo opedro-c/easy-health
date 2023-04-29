@@ -1,4 +1,4 @@
-from flask_login import login_user
+from flask_login import login_required
 from flask_restful import Resource, request
 from services.auth_service import auth_service
 
@@ -11,3 +11,7 @@ class AuthController(Resource):
          return login_data
       else:
          return {'message': 'wrong credentials'}, 400
+   
+   @login_required
+   def delete(self):
+      auth_service.logout()
