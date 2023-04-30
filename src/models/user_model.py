@@ -11,3 +11,4 @@ class UserModel(UserMixin, db.Model):
     email = db.Column(db.String, nullable=False, unique=True)
     password = db.Column(db.String, nullable=False)
     phone_number = db.Column(db.Integer, nullable=False)
+    type = db.Column(db.String, nullable=False)
